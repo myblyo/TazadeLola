@@ -1,0 +1,267 @@
+    export type Temperatura = 'caliente' | 'fria' | null
+
+    export type Categoria =
+    | 'bebida'
+    | 'bolleria'
+    | 'pan'
+    | 'salado'
+    | 'oferta'
+
+    export interface Producto {
+    id: number
+    nombre: string
+    descripcion: string
+    precio: number
+    categoria: Categoria
+    temperatura?: Temperatura
+    disponible: boolean
+    imagen?: string
+    }
+
+    export const menuData: Producto[] = [
+    // ── BEBIDAS CALIENTES ──
+    {
+        id: 1,
+        nombre: 'Espresso',
+        descripcion: 'Café solo concentrado, intenso y aromático',
+        precio: 1.5,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 2,
+        nombre: 'Cortado',
+        descripcion: 'Espresso con un toque de leche caliente',
+        precio: 1.8,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 3,
+        nombre: 'Café con leche',
+        descripcion: 'Mitad café, mitad leche cremosa',
+        precio: 2.0,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 4,
+        nombre: 'Cappuccino',
+        descripcion: 'Espresso con leche vaporizada y espuma',
+        precio: 2.5,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 5,
+        nombre: 'Latte',
+        descripcion: 'Café suave con mucha leche cremosa',
+        precio: 2.8,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 6,
+        nombre: 'Té verde',
+        descripcion: 'Infusión suave y delicada de té verde',
+        precio: 2.0,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+    {
+        id: 7,
+        nombre: 'Manzanilla',
+        descripcion: 'Infusión relajante de manzanilla natural',
+        precio: 1.8,
+        categoria: 'bebida',
+        temperatura: 'caliente',
+        disponible: true,
+    },
+
+    // ── BEBIDAS FRÍAS ──
+    {
+        id: 8,
+        nombre: 'Café con hielo',
+        descripcion: 'Espresso doble sobre hielo picado',
+        precio: 2.2,
+        categoria: 'bebida',
+        temperatura: 'fria',
+        disponible: true,
+    },
+    {
+        id: 9,
+        nombre: 'Frappé de vainilla',
+        descripcion: 'Café frío batido con helado de vainilla',
+        precio: 3.5,
+        categoria: 'bebida',
+        temperatura: 'fria',
+        disponible: true,
+    },
+    {
+        id: 10,
+        nombre: 'Limonada casera',
+        descripcion: 'Limonada fresca hecha con limones naturales',
+        precio: 2.5,
+        categoria: 'bebida',
+        temperatura: 'fria',
+        disponible: true,
+    },
+    {
+        id: 11,
+        nombre: 'Zumo de naranja',
+        descripcion: 'Naranja exprimida al momento',
+        precio: 2.8,
+        categoria: 'bebida',
+        temperatura: 'fria',
+        disponible: true,
+    },
+
+    // ── BOLLERÍA ──
+    {
+        id: 12,
+        nombre: 'Croissant de mantequilla',
+        descripcion: 'Croissant hojaldrado con mantequilla francesa',
+        precio: 2.2,
+        categoria: 'bolleria',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 13,
+        nombre: 'Magdalena casera',
+        descripcion: 'Magdalena esponjosa hecha cada mañana',
+        precio: 1.8,
+        categoria: 'bolleria',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 14,
+        nombre: 'Tarta de queso',
+        descripcion: 'Tarta de queso cremosa al estilo vasco',
+        precio: 3.5,
+        categoria: 'bolleria',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 15,
+        nombre: 'Brownie de chocolate',
+        descripcion: 'Brownie denso con pepitas de chocolate negro',
+        precio: 3.0,
+        categoria: 'bolleria',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 16,
+        nombre: 'Palmera de chocolate',
+        descripcion: 'Hojaldre crujiente bañado en chocolate',
+        precio: 2.0,
+        categoria: 'bolleria',
+        temperatura: null,
+        disponible: false,
+    },
+
+    // ── PANES ──
+    {
+        id: 17,
+        nombre: 'Tostada con tomate',
+        descripcion: 'Pan de masa madre tostado con tomate y aceite',
+        precio: 2.5,
+        categoria: 'pan',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 18,
+        nombre: 'Tostada con mantequilla y mermelada',
+        descripcion: 'Pan tostado con mantequilla y mermelada artesana',
+        precio: 2.2,
+        categoria: 'pan',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 19,
+        nombre: 'Pan de masa madre',
+        descripcion: 'Rebanada de pan artesano de fermentación lenta',
+        precio: 1.5,
+        categoria: 'pan',
+        temperatura: null,
+        disponible: true,
+    },
+
+    // ── SALADO ──
+    {
+        id: 20,
+        nombre: 'Bocadillo de jamón ibérico',
+        descripcion: 'Barra crujiente con jamón ibérico de bellota',
+        precio: 4.5,
+        categoria: 'salado',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 21,
+        nombre: 'Sandwich mixto',
+        descripcion: 'Pan de molde con jamón york y queso fundido',
+        precio: 3.5,
+        categoria: 'salado',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 22,
+        nombre: 'Quiche de verduras',
+        descripcion: 'Quiche casera del día con verduras de temporada',
+        precio: 4.0,
+        categoria: 'salado',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 23,
+        nombre: 'Tostada con aguacate',
+        descripcion: 'Pan de masa madre con aguacate, sal y limón',
+        precio: 4.2,
+        categoria: 'salado',
+        temperatura: null,
+        disponible: true,
+    },
+
+    // ── OFERTAS ──
+    {
+        id: 24,
+        nombre: 'Desayuno completo',
+        descripcion: 'Café con leche + tostada con tomate + zumo',
+        precio: 5.5,
+        categoria: 'oferta',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 25,
+        nombre: 'Menú merienda',
+        descripcion: 'Café o infusión + bollería a elegir',
+        precio: 3.8,
+        categoria: 'oferta',
+        temperatura: null,
+        disponible: true,
+    },
+    {
+        id: 26,
+        nombre: 'Pack frío verano',
+        descripcion: 'Frappé + magdalena casera',
+        precio: 4.5,
+        categoria: 'oferta',
+        temperatura: null,
+        disponible: true,
+    },
+    ]
