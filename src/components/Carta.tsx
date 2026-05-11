@@ -20,15 +20,16 @@
                 backgroundPosition: 'center',
             }}
         aria-labelledby="carta-titulo"
-        className="w-full bg-[#f7ede5] py-24 px-8"
+        className="w-full h-[1000px] bg-[#f7ede5] py-24 px-8 items-center justify-center mt-[88px] flex gap-7 overflow-hidden"
         >
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-10">
+        <div className="max-w-600 mx-auto flex flex-col gap-10  items-center justify-center mt-[88px]">
 
             {/* Título */}
             <h2
-            id="carta-titulo"
-            className="text-center [font-family:'Sedan',Helvetica] text-7xl font-heading text-black [text-shadow:0px_4px_4px_#00000040]">
-            Carta
+                id="carta-titulo"
+                className="[font-family:'Sedan',Helvetica] text-4xl md:text-5xl font-normal text-black "
+            >
+                Carta
             </h2>
 
             {/* Carrusel horizontal */}

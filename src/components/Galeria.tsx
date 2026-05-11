@@ -1,68 +1,75 @@
-    import type { JSX } from 'react'
+import type { JSX } from 'react'
+import foto1 from '../assets/ima1.jpg'
+import foto2 from '../assets/ima2.jpg'
+import foto3 from '../assets/ima3.jpg'
+import foto4 from '../assets/ima4.jpg'
+import photo from '../assets/photo1.jpeg'
+import photo2 from '../assets/photo2.jpeg'
+import photo3 from '../assets/photo3.jpeg'
+import photo4 from '../assets/photo4.jpeg'
 
-    const galleryRowOne = [
-    { border: 'border-[#f8ede6]', backgroundImage: 'bg-[url(/frame-3.png)]', ariaLabel: 'Imagen de galería 1' },
-    { border: 'border-[#f8ede6]', backgroundImage: 'bg-[url(/frame-4.png)]', ariaLabel: 'Imagen de galería 2' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-5.png)]', ariaLabel: 'Imagen de galería 3' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-6.png)]', ariaLabel: 'Imagen de galería 4' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-7.png)]', ariaLabel: 'Imagen de galería 5' },
-    ]
 
-    const galleryRowTwo = [
-    { border: 'border-[#f8ede6]', backgroundImage: 'bg-[url(/image.png)]',     ariaLabel: 'Imagen de galería 6' },
-    { border: 'border-[#f8ede6]', backgroundImage: 'bg-[url(/frame-4-2.png)]', ariaLabel: 'Imagen de galería 7' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-5-2.png)]', ariaLabel: 'Imagen de galería 8' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-6-2.png)]', ariaLabel: 'Imagen de galería 9' },
-    { border: 'border-[#f6e0ce]', backgroundImage: 'bg-[url(/frame-7-2.png)]', ariaLabel: 'Imagen de galería 10' },
-    ]
+const galleryRowOne = [
+  { border: 'border-[#f8ede6]', backgroundImage: foto1, ariaLabel: 'Imagen de galería 1' },
+  { border: 'border-[#f8ede6]', backgroundImage: photo, ariaLabel: 'Imagen de galería 2' },
+  { border: 'border-[#f6e0ce]', backgroundImage: foto2, ariaLabel: 'Imagen de galería 3' },
+  { border: 'border-[#f6e0ce]', backgroundImage: photo2, ariaLabel: 'Imagen de galería 4' },
+]
 
-    interface GalleryRowProps {
-    items: typeof galleryRowOne
-    direction?: 'left' | 'right'
-    }
+const galleryRowTwo = [
+  { border: 'border-[#f8ede6]', backgroundImage: foto4, ariaLabel: 'Imagen de galería 5' },
+  { border: 'border-[#f8ede6]', backgroundImage: photo4, ariaLabel: 'Imagen de galería 6' },
+  { border: 'border-[#f6e0ce]', backgroundImage: foto3, ariaLabel: 'Imagen de galería 7' },
+  { border: 'border-[#f6e0ce]', backgroundImage: photo3, ariaLabel: 'Imagen de galería 8' },
+  { border: 'border-[#f6e0ce]', backgroundImage: foto2, ariaLabel: 'Imagen de galería 9' },
+]
 
-    function GalleryRow({ items, direction = 'left' }: GalleryRowProps): JSX.Element {
-    // Duplicamos los items para que el loop sea infinito y no haya saltos
-    const doubled = [...items, ...items]
+interface GalleryRowProps {
+  items: typeof galleryRowOne
+  direction?: 'left' | 'right'
+}
 
-    return (
-        <div className="overflow-hidden w-full">
-        <div
-            className="flex gap-5"
-            style={{
-            animation: `marquee-${direction} 30s linear infinite`,
-            width: 'max-content',
-            }}
-        >
-            {doubled.map((item, index) => (
-            <div
-                key={index}
-                role="img"
-                aria-label={item.ariaLabel}
-                className={`shrink-0 h-[388px] w-[353px] rounded-[25px] border-[6px] border-solid bg-cover bg-center bg-[#f0d8c8] ${item.border} ${item.backgroundImage}`}
-            />
-            ))}
-        </div>
-        </div>
-    )
-    }
+function GalleryRow({ items, direction = 'left' }: GalleryRowProps): JSX.Element {
+  const doubled = [...items, ...items]
 
-    export default function Galeria(): JSX.Element {
-    return (
-        <section
-        id="galeria"
-        aria-labelledby="galeria-titulo"
-        className="w-full bg-[#f7ede5] py-24 flex flex-col gap-8 overflow-hidden"
-        >
-        <h2
-            id="galeria-titulo"
-            className="text-center px-8"
-        >
-            Galería
-        </h2>
+  return (
+    <div className="overflow-hidden w-full">
+      <div
+        className="flex gap-10"
+        style={{
+          animation: `marquee-${direction} 30s linear infinite`,
+          width: 'max-content',
+        }}
+      >
+        {doubled.map((item, index) => (
+          <img
+            key={index}
+            src={item.backgroundImage}
+            alt={item.ariaLabel}
+            className={`shrink-0 h-[388px] w-[353px] rounded-[25px] border-[6px] border-solid object-cover ${item.border}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
-        <GalleryRow items={galleryRowOne} direction="left" />
-        <GalleryRow items={galleryRowTwo} direction="right" />
-        </section>
-    )
-    }
+export default function Galeria(): JSX.Element {
+  return (
+    <section
+      id="galeria"
+      aria-labelledby="galeria-titulo"
+      className="w-full h-[1050px] bg-[#f7ede5] py-24 flex flex-col gap-8 overflow-hidden justify-center items-center mt-[88px]"
+    >
+      <h2
+        id="galeria-titulo"
+        className="[font-family:'Sedan',Helvetica] text-4xl md:text-5xl font-normal text-black text-center px-8"
+      >
+        Galería
+      </h2>
+
+      <GalleryRow items={galleryRowOne} direction="left" />
+      <GalleryRow items={galleryRowTwo} direction="right" />
+    </section>
+  )
+}
