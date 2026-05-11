@@ -5,13 +5,20 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 @keyframes marquee-left {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-30%); }
 }
 
 @keyframes marquee-right {
-  0%   { transform: translateX(-50%); }
+  0%   { transform: translateX(-30%); }
   100% { transform: translateX(0); }
 }
 
@@ -197,35 +204,16 @@ html {
 }
 
 body {
-  margin: 0;
   font-family: 'Libre Baskerville', serif;
+  background: #fdf6f0;
+  color: #2c1a0e;
 }
 
-h1,
-h2 {
+h1, h2 {
   font-family: 'Sedan', serif;
   font-weight: 400;
-  color: var(--text-h);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
 p {
     margin: 0 ;
   }
