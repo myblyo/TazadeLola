@@ -1,11 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
 import './index.css'
-import Wireframe from './Wireframe'
+import App from './App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Wireframe />
-  </StrictMode>,
+    <App />
+  </StrictMode>
 )
