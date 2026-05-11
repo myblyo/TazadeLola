@@ -6,7 +6,7 @@
     <section
     id="sobre-nosotros"
     aria-labelledby="sobre-nosotros-titulo"
-    className="w-400 h-[800px] bg-[#f7ede5] p-24 ml-24 mr-auto flex items-center justify-center mt-[88px] relative"
+    className="w-full h-[800px] bg-[#f7ede5] p-24 ml-24 mr-auto flex items-center justify-center mt-[88px] relative"
     >
     <div className="max-w-350  h-[800px]  flex flex-col md:flex-row items-center gap-12">
 
