@@ -6,8 +6,6 @@
     const cartaImages = [
     { src: bebidas, alt: 'Carta de bebidas' },
     { src: ofertas, alt: 'Carta de ofertas 1' },
-    { src: bebidas, alt: 'Carta de bebidas 2' },
-    { src: ofertas, alt: 'Carta de ofertas 3' },
     ]
 
     export default function Carta(): JSX.Element {
