@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import menuRoutes from './routes/menu.routes'
+import menuRoutes from './routes/menu.routes.ts'
  
 const app = express()
 const PORT = 3000
