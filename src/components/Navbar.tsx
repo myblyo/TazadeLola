@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'  // cambia el nombre
 const navItems = [
   { label: 'SOBRE NOSOTROS', href: '/sobre-nosotros', external: false },
   { label: 'CARTA', href: '/carta', external: false },
-  { label: 'INFORMACIÓN', href: '/#informacion', external: true },
+  { label: 'INFORMACIÓN', href: '/informacion', external: false },
   { label: 'IMÁGENES', href: '/#galeria', external: true },
 ]
 
