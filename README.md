@@ -1,73 +1,141 @@
-# React + TypeScript + Vite
+# ☕ Taza de Lola
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web para una cafetería construida con React, TypeScript y Vite. Incluye un menú interactivo con soporte offline mediante fallback a datos locales cuando el servidor no está disponible.
 
-Currently, two official plugins are available:
+🌐 **Demo:** [tazadelola.vercel.app](https://tazadelola.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React 19 + TypeScript + Vite
+- **Estilos:** Tailwind CSS 4
+- **Routing:** React Router DOM 7
+- **Backend:** Express 5 + tsx
+- **Linting:** ESLint + typescript-eslint
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Estructura del proyecto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+TazadeLola/
+├── public/
+│   └── menu.json          # Menú local (fallback offline)
+├── server/
+│   └── app.ts             # API REST con Express
+├── src/
+│   ├── hooks/
+│   │   └── useMenu.ts     # Hooks con fallback a datos locales
+│   └── ...
+├── docs/
+├── index.html
+├── vite.config.ts
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Instalación y uso
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Requisitos
+
+- Node.js 18+
+
+### Instalar dependencias
+
+```bash
+npm install
+```
+
+### Desarrollo (solo frontend)
+
+El frontend funciona sin necesidad de levantar el backend, ya que carga el menú desde `public/menu.json` automáticamente si la API no está disponible.
+
+```bash
+npm run dev
+```
+
+### Desarrollo (frontend + backend)
+
+Si quieres usar la API local, abre dos terminales:
+
+```bash
+# Terminal 1 — backend
+npm run server
+
+# Terminal 2 — frontend
+npm run dev
+```
+
+### Build para producción
+
+```bash
+npm run build
+```
+
+---
+
+## 🔌 API
+
+El servidor corre por defecto en `http://localhost:3000`.
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/api/menu` | Devuelve todos los productos |
+| GET | `/api/menu/categoria/:categoria` | Filtra por categoría |
+
+**Categorías disponibles:** `bebida`, `bolleria`, `pan`, `salado`, `oferta`
+
+---
+
+## 🪝 Hooks
+
+### `useMenu()`
+
+Carga todos los productos del menú.
+
+```tsx
+const { data, loading, error, source } = useMenu()
+// source: 'api' | 'local'
+```
+
+### `useMenuByCategoria(categoria)`
+
+Filtra productos por categoría.
+
+```tsx
+const { data, loading, error, source } = useMenuByCategoria('bebida')
+```
+
+Ambos hooks intentan la API primero (timeout de 3 segundos) y caen automáticamente al `menu.json` local si el backend no está disponible. El campo `source` indica el origen de los datos.
+
+---
+
+## 📦 Scripts
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el frontend en modo desarrollo |
+| `npm run build` | Compila el proyecto para producción |
+| `npm run preview` | Previsualiza el build de producción |
+| `npm run server` | Inicia el servidor Express |
+| `npm run lint` | Ejecuta ESLint |
+
+---
+
+## 🗂️ Datos del menú
+
+El archivo `public/menu.json` contiene el catálogo completo con 26 productos organizados por categoría. Sirve como fuente de datos cuando el backend no está activo.
+
+```json
+{
+  "id": 1,
+  "nombre": "Espresso",
+  "descripcion": "Café solo concentrado, intenso y aromático",
+  "precio": 1.5,
+  "categoria": "bebida",
+  "temperatura": "caliente",
+  "disponible": true
+}
 ```
