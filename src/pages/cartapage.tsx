@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { JSX } from 'react'
 import { useMenu, useMenuByCategoria } from '../hooks/useMenu'
 import type { Categoria } from '../hooks/useMenu'
+import Footer from '../components/Footer.tsx'
 
 const categorias: { label: string; value: Categoria | 'todas' }[] = [
   { label: 'Todo', value: 'todas' },
@@ -140,7 +141,10 @@ export default function CartaPage(): JSX.Element {
         </div>
 
         <ProductosGrid categoriaActiva={categoriaActiva} />
+
+
       </div>
+        <Footer />
     </div>
   )
 }

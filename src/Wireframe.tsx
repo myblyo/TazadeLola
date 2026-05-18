@@ -1,6 +1,5 @@
 import type { JSX } from 'react'
 import Navbar from './components/Navbar.tsx'
-import SobreNosotros from './components/SobreNosotros.tsx'
 import Carta from './components/Carta.tsx'
 import Galeria from './components/Galeria.tsx'
 import Footer from './components/Footer.tsx'
@@ -12,7 +11,6 @@ export default function Wireframe(): JSX.Element {
       <Navbar />
       <main>
         <Hero />
-        <SobreNosotros />
         <Carta />
         <Galeria />
       </main>
